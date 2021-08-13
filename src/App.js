@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from
   'react-router-dom'
-
+import Page2 from './pages/Page2'
 import Page1 from './pages/Page1'
 import Header from './components/Header'
 
@@ -13,6 +13,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path='/' component={Page1} />
+        <Route exact path='/Page2' component={Page2} />
 
 
       </Switch>

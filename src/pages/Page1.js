@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import reducer from '../reducers/index'
 
 
@@ -43,15 +43,44 @@ const Page1 = () => {
     });
   };
 
+  const [change, setChange] = useState("");
+
+  const [message, setMessage] = useState("");
+  const [isOk, setIsOk] = useState(false);
+
+  const errorMessage = "入力してください"
+
+  const handleClick = () => {
+
+    if (change === "") {
+      setIsOk(false)
+      setMessage(errorMessage)
+    } else {
+      setIsOk(true)
+      setMessage(change)
+    }
+
+    // if (isOK) { setMassage } false, { errorMassage }
+  }
 
 
 
 
+  //if (isOk) {setIsOK}
 
 
+  //const handleClick = () => {
+  //setMassage(change)
+  //if (change == "") { setMassage("何か入力してください") }
+  //};
+  //if (massage == "何か入力してくだささい") { massage};
+  //if (change == 1) { setMassage("何か入力してください") }
+  //style = {{ color: "red" }}
+
+  //{/* <div disable={false} style={{ color: "red" }}>{errorMassage}</div> */ }
 
 
-
+  console.log(change)
   return (
     <div>
       <div>Page1</div>
@@ -74,9 +103,22 @@ const Page1 = () => {
         {state.count}
       </div>
 
+      <div>
+        <h1>level 4 , 5</h1>
+
+        <input type="text" name="name" onChange={e => setChange(e.target.value)} />
+        <button onClick={handleClick} >Hello</button>
+
+        < div style={{ color: (setIsOk ? "red" : "bule") }}> {message}</div >
 
 
 
+
+
+
+
+
+      </div>
 
 
 
@@ -90,3 +132,4 @@ const Page1 = () => {
 
 export default Page1
 
+//  < div style = {{ color: { setIsOk, "black": "red" } }}> { message }</div >
