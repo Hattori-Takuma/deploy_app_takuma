@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, RESET, ERROR } from '../action/index'
+import { INCREMENT, DECREMENT, RESET } from '../action/index'
 
 
 
@@ -10,6 +10,10 @@ const reducer = (state = [], action,) => {
       return { ...state, count: state.count - 1 };
     case RESET:
       return { ...state, count: 0 };
+
+
+
+
 
 
   }

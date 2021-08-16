@@ -29,6 +29,9 @@ const Page2 = () => {
 
 
 
+
+
+
   return (
     <div>
       <h1>level6
@@ -39,9 +42,6 @@ const Page2 = () => {
       <button onClick={choki}>ちょき</button>
       <button onClick={pa}>ぱー</button>
       <div>あなたの手:{hand}</div>
-
-      <div>cpuの手：</div>
-
 
     </div>
   )

@@ -68,3 +68,63 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+import React, { useState } from 'react'
+
+const Page2 = () => {
+
+
+
+
+
+
+  const [hand, setHand] = useState("");
+
+  const gu = () => {
+    setHand("ぐー")
+  };
+
+  const choki = () => {
+    setHand("ちょき")
+  };
+
+  const pa = () => {
+    setHand("ぱー")
+  };
+
+
+
+  const [Cpu, setCpu] = useState("");
+
+  const random = Math.floor(Math.random() * 3)
+
+  if (random === 0) { setCpu("gu") } else { setCpu("pa") };
+
+
+
+
+
+
+
+
+  return (
+    <div>
+      <h1>level6
+
+      </h1>
+
+      <button onClick={gu}>ぐー</button>
+      <button onClick={choki}>ちょき</button>
+      <button onClick={pa}>ぱー</button>
+      <div>あなたの手:{hand}</div>
+
+      <div>cpuの手：{Cpu}</div>
+      <button onClick={random} >CPU</button>
+
+    </div>
+  )
+}
+
+export default Page2
