@@ -3,9 +3,7 @@ import reducer from '../reducers/index';
 const initialState = {
   data: [],
   count: 0,
-
 };
-
 
 export const Store = createContext({
   globalState: initialState,

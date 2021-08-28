@@ -16,8 +16,6 @@ function App() {
         <Route exact path='/' component={Page1} />
         <Route exact path='/Page2' component={Page2} />
         <Route exact path='/Page3' component={Page3} />
-
-
       </Switch>
     </Router>
   );
