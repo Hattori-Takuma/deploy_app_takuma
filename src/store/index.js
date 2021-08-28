@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
 import reducer from '../reducers/index';
 const initialState = {
-  titles_data: [],
+  data: [],
   count: 0,
 
 };

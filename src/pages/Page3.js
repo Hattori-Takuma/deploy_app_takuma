@@ -24,11 +24,7 @@ const Page3 = () => {
 
       <div >
         {
-          globalState.titles_data.map((titles, index) => {
-            return (
-              titles = { titles }
-            )
-          })
+          globalState.data
 
         }
 

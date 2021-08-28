@@ -8,5 +8,5 @@ const API = axios.create({
 
 
 export const fetchGetData = async () => {
-  return await API.get('/titles')
+  return await API.get()
 }

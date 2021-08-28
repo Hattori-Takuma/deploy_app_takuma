@@ -12,7 +12,7 @@ const reducer = (state, action,) => {
       return { ...state, count: 0 };
 
     case GET_DATA:
-      return { ...state, titles_data: action.data }
+      return { ...state, data: action.data }
 
     default:
       return state
