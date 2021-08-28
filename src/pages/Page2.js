@@ -24,17 +24,27 @@ const Page2 = () => {
 
 
 
+  const [Cpu, setCpu] = useState("");
+
+  const random = Math.floor(Math.random() * 3)
+
+  //if (random === 0) { setCpu("gu") } else { setCpu("pa") };
+
+
+
+  if (random === 0) {
+    setCpu("GU")
+  }
 
 
 
 
-
-
+  console.log(random)
 
 
   return (
     <div>
-      <h1>level6
+      <h1>level6,level7
 
       </h1>
 
@@ -42,6 +52,8 @@ const Page2 = () => {
       <button onClick={choki}>ちょき</button>
       <button onClick={pa}>ぱー</button>
       <div>あなたの手:{hand}</div>
+      <div>CPUの手：{Cpu}</div>
+      {random}
 
     </div>
   )

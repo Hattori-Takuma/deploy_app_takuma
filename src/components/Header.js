@@ -9,6 +9,7 @@ const Header = () => {
         <h3>ハットリ</h3>
         <Link to="/">Page1</Link>
         <Link to="Page2">Page2</Link>
+        <Link to="Page3">Page3</Link>
 
 
 

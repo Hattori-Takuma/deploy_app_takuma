@@ -109,7 +109,7 @@ const Page1 = () => {
         <input type="text" name="name" onChange={e => setChange(e.target.value)} />
         <button onClick={handleClick} >Hello</button>
 
-        < div style={{ color: (setIsOk, "black", "red") }}> {message}</div >
+        < div style={{ color: (setIsOk ? "black" : "red") }}> {message}</div >
 
 
 
