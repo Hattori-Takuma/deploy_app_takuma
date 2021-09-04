@@ -9,9 +9,8 @@ const Page1 = () => {
   const [state, dispatch] = useReducer(reducer, initialCount);
   const [change, setChange] = useState("");
   const [message, setMessage] = useState("");
-  const [isOk, setIsOk] = useState(false);
 
-  const [errorMessage,setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const Hello = () => {
     console.log('Hello world');
   }
@@ -39,11 +38,9 @@ const Page1 = () => {
 
   const handleClick = () => {
     if (change === "") {
-      setIsOk(false)
       setErrorMessage("入力してください")
       setMessage(change)
     } else {
-      setIsOk(true)
       setMessage(change)
       setErrorMessage('')
     }
@@ -75,7 +72,7 @@ const Page1 = () => {
         <button onClick={handleClick} >Hello</button>
 
         <div> {message}</div>
-        <div style={{color: 'red'}}>{errorMessage}</div>
+        <div style={{ color: 'red' }}>{errorMessage}</div>
       </div>
     </div>
 
