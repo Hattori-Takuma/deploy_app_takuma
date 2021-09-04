@@ -12,24 +12,18 @@ const Page2 = () => {
   const gu = () => {
     setHand("ぐー")
     console.log("gu")
-
-
-
   };
 
   const choki = () => {
     setHand("ちょき")
-    return (
-      { com }
-    )
+    console.log("choki")
+
 
   };
 
   const pa = () => {
     setHand("ぱー")
-    return (
-      { com }
-    )
+    console.log("pa")
 
 
   };
@@ -45,6 +39,7 @@ const Page2 = () => {
     case "ぱー":
       mainHand = 3;
       break;
+    default:
   }
 
 
@@ -64,31 +59,24 @@ const Page2 = () => {
 
 
   const com = Math.floor(Math.random() * 3) + 1;
+  console.log(com)
 
 
   // コンピュータの手の名前
   let comHandName = '';
   switch (com) {
     case GU:
-      comHandName = 'グー';
+      comHandName = 'グー!!';
       break;
     case CHOKI:
-      comHandName = 'チョキ';
+      comHandName = 'チョキ!!';
       break;
     case PA:
-      comHandName = 'パー';
+      comHandName = 'パー!!';
       break;
-  }
+    default:
+  }console.log(comHandName)
 
-
-
-
-
-
-
-
-  //if (random === 0) {setCpu("GU")}else if (random === 1) {setCpu("pa")}
-  //else {setCpu("cyoki")}
 
 
   let result = '';
@@ -96,10 +84,13 @@ const Page2 = () => {
     result = '結果はあいこでした。';
   } else if ((com === GU && mainHand === 3) || (com === CHOKI && mainHand === 1) || (com === PA && mainHand === 2)) {
     result = '勝ちました。';
-  } else {
+  } else if ((com === GU && mainHand === 2) || (com === CHOKI && mainHand === 3) || (com === PA && mainHand === 1)) {
     result = '負けました。';
+  } else {
+    result = '...'
   }
-  console.log(com)
+
+
 
 
 
@@ -121,9 +112,11 @@ const Page2 = () => {
       <button onClick={pa}>ぱー</button>
       <div>あなたの手:{hand}</div>
       <div>CPUの手：{comHandName}</div>
+      <div>結果は {result}</div>
 
 
-      {result}
+
+
 
 
     </div>
