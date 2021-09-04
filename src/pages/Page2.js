@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Page2 = () => {
 
@@ -8,14 +8,31 @@ const Page2 = () => {
 
 
   const [hand, setHand] = useState("");
+  const [count, setCount] = useState(0);
+
+
+
+  useEffect(() => {
+    console.log('useEffect が呼び出されました。')
+
+  },
+    [count]
+  );
+
+
+
 
   const gu = () => {
     setHand("ぐー")
+    setCount(count + 1)
+
     console.log("gu")
+
   };
 
   const choki = () => {
     setHand("ちょき")
+    setCount(count + 1)
     console.log("choki")
 
 
@@ -23,10 +40,11 @@ const Page2 = () => {
 
   const pa = () => {
     setHand("ぱー")
+    setCount(count + 1)
     console.log("pa")
-
-
   };
+
+
 
   let mainHand = '';
   switch (hand) {
@@ -65,6 +83,7 @@ const Page2 = () => {
   // コンピュータの手の名前
   let comHandName = '';
   switch (com) {
+
     case GU:
       comHandName = 'グー!!';
       break;
@@ -80,6 +99,7 @@ const Page2 = () => {
 
 
   let result = '';
+
   if (mainHand === com) {
     result = '結果はあいこでした。';
   } else if ((com === GU && mainHand === 3) || (com === CHOKI && mainHand === 1) || (com === PA && mainHand === 2)) {
@@ -103,9 +123,7 @@ const Page2 = () => {
 
   return (
     <div>
-      <h1>level6,level7
-
-      </h1>
+      <h1>level6,level7</h1>
 
       <button onClick={gu}>ぐー</button>
       <button onClick={choki}>ちょき</button>
