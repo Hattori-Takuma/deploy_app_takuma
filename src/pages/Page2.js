@@ -1,124 +1,96 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
+/**
+ * じゃんけん 
+ */
 const Page2 = () => {
-
-
-
-
-
-
+  // 自分の手
   const [hand, setHand] = useState("");
-
-  const gu = () => {
-    setHand("ぐー")
-    console.log("gu")
-  };
-
-  const choki = () => {
-    setHand("ちょき")
-    console.log("choki")
-
-
-  };
-
-  const pa = () => {
-    setHand("ぱー")
-    console.log("pa")
-
-
-  };
-
-  let mainHand = '';
-  switch (hand) {
-    case "ぐー":
-      mainHand = 1;
-      break;
-    case "ちょき":
-      mainHand = 2;
-      break;
-    case "ぱー":
-      mainHand = 3;
-      break;
-    default:
+  // 相手の手
+  const [comHandName, setComHandName] = useState("")
+  // 勝敗
+  const [result, setResult] = useState("")
+  // 何試合目か
+  const [changeCheck, setChangeCheck] = useState(0)
+  
+  // じゃんけんの試合毎に実行
+  useEffect(() => {
+    judge()
+    // eslint-disable-next-line
+  }, [changeCheck])
+  
+  // onClickで実行される関数
+  const janken = (te) => {
+    decideMyHand(te)
+    decideCpuHand()
+    setChangeCheck(prev => prev + 1)
   }
 
-
-
-
-
-  //const [Cpu, setCpu] = useState("");
-
-  //const random = Math.floor(Math.random() * 3)
-
-
-  const GU = 1;
-  const CHOKI = 2;
-  const PA = 3;
-
-
-
-
-  const com = Math.floor(Math.random() * 3) + 1;
-  console.log(com)
-
-
-  // コンピュータの手の名前
-  let comHandName = '';
-  switch (com) {
-    case GU:
-      comHandName = 'グー!!';
-      break;
-    case CHOKI:
-      comHandName = 'チョキ!!';
-      break;
-    case PA:
-      comHandName = 'パー!!';
-      break;
-    default:
-  }console.log(comHandName)
-
-
-
-  let result = '';
-  if (mainHand === com) {
-    result = '結果はあいこでした。';
-  } else if ((com === GU && mainHand === 3) || (com === CHOKI && mainHand === 1) || (com === PA && mainHand === 2)) {
-    result = '勝ちました。';
-  } else if ((com === GU && mainHand === 2) || (com === CHOKI && mainHand === 3) || (com === PA && mainHand === 1)) {
-    result = '負けました。';
-  } else {
-    result = '...'
+  // 自分の手を呼び出す
+  const decideMyHand = (te) => {
+    if (te === "ぐー") {
+      setHand("ぐー")
+    } else if(te === "ちょき") {
+      setHand("ちょき")
+    } else if (te === "ぱー") {
+      setHand("ぱー")
+    } else {
+      alert("error")
+    }
   }
 
+  // cpuの手を呼び出す
+  const decideCpuHand = () => {
+    const com = Math.floor(Math.random() * 3) + 1;
+    switch (com) {
+      case 1:
+        setComHandName("ぐー");
+        break;
+      case 2:
+        setComHandName("ちょき");
+        break;
+      case 3:
+        setComHandName("ぱー");
+        break;
+      default:
+    }
+  }
 
-
-
-
-
-
-
-
-
-
+  // ジャンケンの勝敗を決める
+  const judge = () => {
+    // 自分の手が確定していなかったらreturn
+    if (hand === "") return
+    // 自分の手と相手の手を比較し、勝敗を判定
+    if (hand === comHandName) {
+      setResult('結果はあいこでした。');
+    } else if(hand === "ぐー" && comHandName === "ちょき"){
+      setResult('あなたの勝ちです。');
+    } else if (hand === "ちょき" && comHandName === "ぱー") {
+      setResult('あなたの勝ちです。');
+    } else if (hand === "ぱー" && comHandName === "ぐー") {
+      setResult('あなたの勝ちです。');
+    }else if (hand === "ぐー" && comHandName === "ぱー") {
+      setResult('あなたの負けです。');
+    } else if (hand === "ちょき" && comHandName === "ぐー") {
+      setResult('あなたの負けです。');
+    } else if (hand === "ぱー" && comHandName === "ちょき") {
+      setResult('あなたの負けです。');
+    }else {
+      setResult('...');
+    }
+  };
 
   return (
     <div>
-      <h1>level6,level7
-
+      <h1>
+        level6,level7
       </h1>
-
-      <button onClick={gu}>ぐー</button>
-      <button onClick={choki}>ちょき</button>
-      <button onClick={pa}>ぱー</button>
+      <button onClick={() => janken("ぐー")}>ぐー</button>
+      <button onClick={() => janken("ちょき")}>ちょき</button>
+      <button onClick={() => janken("ぱー")}>ぱー</button>
       <div>あなたの手:{hand}</div>
       <div>CPUの手：{comHandName}</div>
       <div>結果は {result}</div>
-
-
-
-
-
-
     </div>
   )
 }

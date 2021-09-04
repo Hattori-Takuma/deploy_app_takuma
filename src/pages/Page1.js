@@ -9,7 +9,6 @@ const Page1 = () => {
   const [state, dispatch] = useReducer(reducer, initialCount);
   const [change, setChange] = useState("");
   const [message, setMessage] = useState("");
-
   const [errorMessage, setErrorMessage] = useState('')
   const Hello = () => {
     console.log('Hello world');
@@ -52,7 +51,6 @@ const Page1 = () => {
       <div>
         <h1>level 1</h1>
         <button onClick={Hello}>Hello World</button></div>
-
       <div>
         <h1>level 2</h1>
         <button onClick={clickMe}>Hello World2</button></div>
@@ -61,21 +59,16 @@ const Page1 = () => {
         <button onClick={increment}>ええやん</button>
         <button onClick={decrement}>よくないんちゃう</button>
         <button onClick={reset}>一旦リセットで</button>
-
         {state.count}
       </div>
-
       <div>
         <h1>level 4 , 5</h1>
-
         <input type="text" name="name" onChange={e => setChange(e.target.value)} />
         <button onClick={handleClick} >Hello</button>
-
         <div> {message}</div>
         <div style={{ color: 'red' }}>{errorMessage}</div>
       </div>
     </div>
-
   )
 }
 

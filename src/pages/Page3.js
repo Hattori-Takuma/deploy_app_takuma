@@ -4,8 +4,6 @@ import { fetchGetData } from '../apis/index'
 import { Store } from '../store/index'
 
 const Page3 = () => {
-
-
   const { globalState, setGlobalState } = useContext(Store)
   useEffect(() => {
     fetchGetData().then(res => {
@@ -14,23 +12,17 @@ const Page3 = () => {
         data: res.data
       })
     })
-
   }, [])
   console.log(globalState)
-
   return (
     <div>
       <h1>level8</h1>
-
       <div >
         {
           globalState.data
 
         }
-
-
       </div>
-
     </div>
   )
 
