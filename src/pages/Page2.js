@@ -99,7 +99,6 @@ const Page2 = () => {
 
 
   let result = '';
-
   if (mainHand === com) {
     result = '結果はあいこでした。';
   } else if ((com === GU && mainHand === 3) || (com === CHOKI && mainHand === 1) || (com === PA && mainHand === 2)) {

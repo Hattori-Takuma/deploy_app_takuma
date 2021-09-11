@@ -1,37 +1,42 @@
-import React, { useEffect, useContext } from 'react'
-import { GET_DATA } from '../action/index'
-import { fetchGetData } from '../apis/index'
-import { Store } from '../store/index'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+//import { GET_DATA } from '../action/index'
+//import { fetchGetData } from '../apis/index'
+//import { Store } from '../store/index'
 
 const Page3 = () => {
 
 
-  const { globalState, setGlobalState } = useContext(Store)
-  useEffect(() => {
-    fetchGetData().then(res => {
-      setGlobalState({
-        type: GET_DATA,
-        data: res.data
-      })
-    })
+  const [rep, setRep] = useState([])
 
+  useEffect(() => {
+    getData()
   }, [])
-  console.log(globalState)
+  const getData = async () => {
+
+    const res = await axios.get('https://qiita.com/api/v2/items')
+    console.log(res.data)
+    setRep(res.data)
+
+  }
+  console.log(rep)
+
 
   return (
     <div>
-      <h1>level8</h1>
+      {/* {rep} */}
+      {rep.map((d, index) => {
+        return (<tr key={index}>
+          <td>
+            {d.url}
+          </td>
 
-      <div >
-        {
-          globalState.data
+        </tr>)
+      })
 
-        }
-
-
-      </div>
-
+      })
     </div>
+
   )
 
 

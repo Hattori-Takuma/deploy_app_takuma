@@ -128,3 +128,22 @@ const Page2 = () => {
 }
 
 export default Page2
+
+
+
+  const [rep, setRep] = useState([])
+
+  useEffect(() => {
+    getData()
+  }, [])
+  const getData = async () => {
+    try {
+      await axios.get('https://qiita.com/api/v2/items')
+        .then(res => {
+          setRep(res.data)
+        })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  console.log(rep)

@@ -2,7 +2,7 @@ import { INCREMENT, DECREMENT, RESET, GET_DATA } from '../action/index'
 
 
 
-const reducer = (state, action,) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case INCREMENT:
       return { ...state, count: state.count + 1 };
@@ -12,7 +12,7 @@ const reducer = (state, action,) => {
       return { ...state, count: 0 };
 
     case GET_DATA:
-      return { ...state, data: action.data }
+      return { ...state, title_data: action.data }
 
     default:
       return state
