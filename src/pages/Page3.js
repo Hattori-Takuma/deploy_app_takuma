@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Table } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 //import { GET_DATA } from '../action/index'
 //import { fetchGetData } from '../apis/index'
 //import { Store } from '../store/index'
@@ -24,25 +26,41 @@ const Page3 = () => {
 
   return (
     <div>
+      <h1>Level8,9</h1>
 
 
 
 
-      <h3>タイトル一覧</h3>
 
-      {rep.map((d, index) => {
-        return (
-          <tr key={index}>
-            <a href={d.url}>
-              <ul>{d.title}</ul>
-            </a>
 
+
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+
+            <th><h2>タイトル一覧</h2></th>
 
           </tr>
-        )
-      }
-      )
-      }
+        </thead>
+        <tbody>
+          {rep.map((d, index) => {
+            return (
+              <tr key={index}>
+
+                <th>
+                  <a href={d.url}>
+                    <ul>{d.title}</ul>
+                  </a>
+                </th>
+
+
+              </tr>
+            )
+          }
+          )
+          }
+        </tbody>
+      </Table>
 
 
 
