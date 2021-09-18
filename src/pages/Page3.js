@@ -7,15 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 //import { Store } from '../store/index'
 
 const Page3 = () => {
-
-
   const [rep, setRep] = useState([])
 
   useEffect(() => {
     getData()
   }, [])
-  const getData = async () => {
 
+  const getData = async () => {
     const res = await axios.get('https://qiita.com/api/v2/items')
     console.log(res.data)
     setRep(res.data)
@@ -27,13 +25,6 @@ const Page3 = () => {
   return (
     <div>
       <h1>Level8,9</h1>
-
-
-
-
-
-
-
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
@@ -61,19 +52,8 @@ const Page3 = () => {
           }
         </tbody>
       </Table>
-
-
-
-
     </div>
-
   )
-
-
-
-
-
-
 }
 
 export default Page3
