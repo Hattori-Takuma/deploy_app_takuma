@@ -24,17 +24,29 @@ const Page3 = () => {
 
   return (
     <div>
-      {/* {rep} */}
+
+
+
+
+      <h3>タイトル一覧</h3>
+
       {rep.map((d, index) => {
-        return (<tr key={index}>
-          <td>
-            {d.url}
-          </td>
+        return (
+          <tr key={index}>
+            <a href={d.url}>
+              <ul>{d.title}</ul>
+            </a>
 
-        </tr>)
-      })
 
-      })
+          </tr>
+        )
+      }
+      )
+      }
+
+
+
+
     </div>
 
   )
