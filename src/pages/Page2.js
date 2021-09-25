@@ -28,6 +28,7 @@ const Page2 = () => {
 
     console.log("gu")
 
+
   };
 
   const choki = () => {
@@ -36,12 +37,14 @@ const Page2 = () => {
     console.log("choki")
 
 
+
   };
 
   const pa = () => {
     setHand("ぱー")
     setCount(count + 1)
     console.log("pa")
+
   };
 
 
