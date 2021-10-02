@@ -10,16 +10,16 @@ const Page2 = () => {
 
   useEffect(() => {
     console.log('useEffect が呼び出されました。')
-  },
-    [count]
-  );
+    judge()
+    // eslint-disable-next-line
+  }, [count]);
 
   const gu = () => {
     setHand("ぐー")
     setCount(count + 1)
     console.log("gu")
     CPUdeside()
-    judge()
+
   };
 
   const choki = () => {
@@ -27,7 +27,7 @@ const Page2 = () => {
     setCount(count + 1)
     console.log("choki")
     CPUdeside()
-    judge()
+
   };
 
   const pa = () => {
@@ -35,7 +35,7 @@ const Page2 = () => {
     setCount(count + 1)
     console.log("pa")
     CPUdeside()
-    judge()
+
   };
 
 
@@ -62,7 +62,7 @@ const Page2 = () => {
   }
 
   const judge = () => {
-
+    if (hand === "") return
     if (hand === cpuhand) {
       setResult("あいこ");
     } else if ((cpuhand === "ぐー" && hand === "ぱー") || (cpuhand === "ちょき" && hand === "ぐー") || (cpuhand === "ぱー" && hand === "ちょき")) {
