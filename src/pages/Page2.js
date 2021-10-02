@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import useJudge from '../hooks/useJudge';
 
 const Page2 = () => {
-
   const [hand, setHand] = useState("");
   const [cpuhand, setCpuhand] = useState("");
   const [count, setCount] = useState(0);
   const [result, setResult] = useState("");
 
-
+  // 判定はcpuhandとhandが更新された後にjudge()関数を実行
   useEffect(() => {
-    console.log('useEffect が呼び出されました。')
-  },
-    [count]
+    judge()
+    // eslint-disable-next-line
+  },[cpuhand && hand]
   );
 
   const gu = () => {
@@ -38,7 +38,6 @@ const Page2 = () => {
     judge()
   };
 
-
   const CPUdeside = () => {
     const com = Math.floor(Math.random() * 3) + 1;
     console.log(com)
@@ -62,7 +61,8 @@ const Page2 = () => {
   }
 
   const judge = () => {
-
+    console.log('this is invoked', hand === "")
+    if(hand === "") return 
     if (hand === cpuhand) {
       setResult("あいこ");
     } else if ((cpuhand === "ぐー" && hand === "ぱー") || (cpuhand === "ちょき" && hand === "ぐー") || (cpuhand === "ぱー" && hand === "ちょき")) {
@@ -76,9 +76,6 @@ const Page2 = () => {
     console.log(hand)
 
   }
-
-
-
 
   return (
     <div>
