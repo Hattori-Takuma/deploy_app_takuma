@@ -21,6 +21,7 @@ function App() {
         <Route exact path='/PageA' component={PageA} />
         <Route exact path='/PageB' component={PageB} />
         <Route exact path='/PageA/:params' component={PageA} />
+        <Route exact path='/PageB/:params' component={PageB} />
       </Switch>
     </Router>
   );

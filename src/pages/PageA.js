@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from
   'react-router-dom'
+import { Link } from "react-router-dom";
 
 const PageA = () => {
 
@@ -13,6 +14,7 @@ const PageA = () => {
     <div>
       <h1>
         Level11
+          <Link to="PageB/hello">PageB</Link>
       </h1>
 
       {/* <h2>・{params}！</h2> */}
